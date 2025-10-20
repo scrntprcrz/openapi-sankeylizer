@@ -1,0 +1,162 @@
+@layer components {
+	.btn {
+		@apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors;
+
+		&:hover {
+			background: #f3f4f6;
+		}
+
+		&:active {
+			transform: translateY(0.5px);
+		}
+
+		&-plain {
+			color: var(--accent);
+		}
+
+		&-bordered {
+			@apply border text-fore;
+			border-color: var(--sep);
+			background: transparent;
+		}
+
+		&-prominent {
+			background: var(--accent);
+			color: #fff;
+			@apply font-medium;
+		}
+
+		&-ghost {
+			background: transparent;
+			color: var(--fore);
+			&:hover {
+				background: #f3f4f6;
+			}
+		}
+	}
+
+	.row {
+		@apply w-full text-left px-4 py-2 text-[13px] leading-5;
+		background: var(--surface);
+		color: var(--fore);
+		border-radius: 0;
+		border: 0;
+		border-inline-start: 3px solid transparent;
+		transition: background-color 0.12s ease, border-color 0.12s ease,
+			color 0.12s ease;
+	}
+
+	.row:hover {
+		background: color-mix(in srgb, var(--accent) 8%, white 92%);
+	}
+
+	.row[aria-selected="true"],
+	.row[data-selected="true"],
+	.row.is-selected {
+		border-inline-start-color: var(--accent);
+		background: color-mix(in srgb, var(--accent) 15%, white 85%);
+		color: var(--fore);
+		outline: 0;
+		box-shadow: none;
+	}
+
+	.form-check {
+		accent-color: var(--accent);
+	}
+
+	.badge {
+		@apply absolute right-1 top-1;
+		@apply min-w-[16px] h-[16px] px-1 text-[10px] leading-none;
+		@apply rounded-full flex items-center justify-center;
+		@apply bg-red-600 text-white ring-1 ring-black/40 pointer-events-none;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.kbar-checkbox {
+		@apply appearance-none w-4 h-4 border-2 border-black rounded-sm relative cursor-pointer bg-white;
+	}
+
+	.kbar-checkbox:checked {
+		@apply bg-black border-black;
+	}
+
+	.kbar-checkbox:checked::after {
+		content: "";
+		position: absolute;
+		left: 4px;
+		top: 0px;
+		width: 4px;
+		height: 8px;
+		border: solid white;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+}
+
+@layer base {
+	*:focus,
+	*:focus-visible,
+	*:focus-within {
+		outline: none !important;
+		box-shadow: none !important;
+	}
+
+	:is(
+			button,
+			[role="button"],
+			a[href],
+			input,
+			select,
+			textarea,
+			summary,
+			[tabindex]:not([tabindex="-1"])
+		) {
+		@apply outline-none ring-0
+      focus:outline-none focus:ring-0 focus:ring-offset-0
+      focus-visible:outline-none focus-visible:ring-0;
+	}
+
+	button::-moz-focus-inner {
+		border: 0;
+	}
+
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+.h-app {
+	height: 100dvh;
+}
+
+@supports not (height: 100dvh) {
+	.h-app {
+		height: 100vh;
+	}
+}
+
+.sidebar {
+	.btn-icon {
+		@apply w-12 h-12 flex items-center justify-center border transition;
+		color: var(--fore);
+		@apply border-0;
+		background: transparent;
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			background: transparent !important;
+		}
+
+		&.active,
+		&[data-active="true"] {
+			@apply border-0;
+			background: var(--accent) !important;
+			color: var(--on-accent, #fff) !important;
+			box-shadow: none !important;
+		}
+	}
+}

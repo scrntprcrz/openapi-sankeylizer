@@ -1,0 +1,24 @@
+:root {
+	color-scheme: light;
+	--app: #dedede;
+	--panel: #f5f5f5;
+
+	--surface: color-mix(in srgb, theme("colors.white") 100%, transparent);
+	--sep: #e5e7eb;
+	--fore: #0f172a;
+	--muted: #64748b;
+
+	--accent: #121212;
+	--accent_contrastText: theme("colors.white");
+	--link: #007aff;
+	--app-header-h: 50px;
+	--app-sidebar-w: 50px;
+
+	--sb-thumb: 100 100 100;
+	--sb-thumb-alpha: 0.75;
+	--sb-thumb-hover: 0.88;
+	--sb-track: 100 100 100;
+	--sb-track-alpha: 0.2;
+	--sb-size: 10px;
+	--sb-radius: 9999px;
+}
